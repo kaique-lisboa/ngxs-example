@@ -1,0 +1,8 @@
+<app-header />
+<main class="container p-4">
+    <h1>Borrowed books</h1>
+
+    <section class="grid grid-cols-2 gap-4">
+        <app-book *ngFor="let book of borrowedBooks$ | async" [book]="book" />
+    </section>
+</main>

@@ -1,0 +1,12 @@
+
+<article class="card card-side w-full max-h-96 bg-base-200 shadow-sm">
+    <figure><img [src]="'/assets/'  +book.imageLink" [alt]="book.title" /></figure>
+    <div class="card-body">
+        <h2 class="card-title">{{ book.title }}</h2>
+        <p>por {{ book.author }}</p>
+        <div class="card-actions justify-end">
+            <button [class.disabled-button]="isBookBorrowed$ | async" (click)="borrow()" target="_blank" class="btn btn-primary">borrow</button>
+            <a [href]="book.link" target="_blank" class="btn btn-accent">visit</a>
+        </div>
+    </div>
+</article>

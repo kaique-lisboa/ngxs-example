@@ -1,0 +1,18 @@
+<app-header />
+<main class="container p-4">
+    <h1>Welcome to the library, here are our available books</h1>
+
+    <button class="btn btn-primary my-2" (click)="loadBooks()">Load books</button>
+
+    <section class="grid grid-cols-2 gap-4">
+        <ng-container *ngIf="books$ | async as books">
+            <app-book *ngFor="let book of books" [book]="book" />
+        </ng-container>
+
+        <div *ngIf="loadingBooks$ | async" class="radial-progress animate-spin" style="--value:50;"></div>
+        
+        
+    </section>
+    <div *ngIf="errorLoadingBooks$ | async" class="alert alert-error">Erro while fetching books</div>
+    
+</main>
