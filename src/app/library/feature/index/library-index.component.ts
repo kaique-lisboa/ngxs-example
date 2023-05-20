@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { LoadBooks } from '../../store/library.actions';
 import { LibraryState } from '../../store/library.state';
@@ -7,7 +7,8 @@ import { Book, LibraryModel } from '../../store/library.types';
 
 @Component({
   templateUrl: './library-index.component.html',
-  styleUrls: ['./library-index.component.scss']
+  styleUrls: ['./library-index.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LibraryIndexComponent {
 

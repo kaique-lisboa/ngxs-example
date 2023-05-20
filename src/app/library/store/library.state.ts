@@ -72,9 +72,9 @@ export class LibraryState {
 
   @Action(BorrowBook)
   borrowBook(ctx: StateContext<LibraryModel>, action: BorrowBook) {
-    console.error("Error while fetching books", action);
-    return ctx.setState(produce((draft) => {
-      draft.borrowedBooks.push(action.bookId)
+    return ctx.setState(state => ({
+      ...state,
+      borrowedBoks: [...state.borrowedBooks, action.bookId]
     }))
   }
 
